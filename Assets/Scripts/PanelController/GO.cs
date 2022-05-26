@@ -4,19 +4,16 @@ using UnityEngine;
 
 public class GO : MonoBehaviour
 {
-    MoveController _moveController;
+    
 
     [SerializeField] Animator _animator;
-    [SerializeField] GameObject _goPanel, _victoryPanel;
-    [SerializeField] GameObject _vmCam;
+    [SerializeField] GameObject _goPanel;
+    
     
     
 
 
-    private void Awake()
-    {
-        _moveController = new MoveController();
-    }
+   
 
     public void OnCollisionEnter(Collision collision)
     {
@@ -28,12 +25,7 @@ public class GO : MonoBehaviour
             StartCoroutine(Deads());
             
         }
-        if (collision.gameObject.CompareTag("Chest"))
-        {
-            
-            _animator.Play("Victory");
-            StartCoroutine(Victory());
-        }
+        
     }
 
     IEnumerator Deads()
@@ -45,11 +37,5 @@ public class GO : MonoBehaviour
         
     }
 
-    IEnumerator Victory()
-    {
-        
-        yield return new WaitForSeconds(3);
-        Time.timeScale = 0;
-        _victoryPanel.SetActive(true);
-    }
+    
 }

@@ -41,7 +41,7 @@ public class PlayerController : MonoBehaviour
             _surunme = false;
         }
 
-        if (Input.GetKey(KeyCode.LeftShift) && Input.GetKey(KeyCode.W))
+        if (Input.GetKey(KeyCode.LeftShift) && (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S)))
         {
             _isRun = true;
 
